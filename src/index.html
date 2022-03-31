@@ -13,22 +13,25 @@
 
 <main class="form-signin">
     <form>
-        <img alt="Sistema de Segurança" class="mb-4" src="img/iot.png" width="100">
+        <img alt="Sistema de Segurança" class="mb-4 login-logo" src="img/iot.png">
         <h1 class="h3 my-4 fw-normal">Sistema de Segurança</h1>
 
+        <div id="error-banner" role="alert"></div>
+
         <div class="form-floating">
-            <input class="form-control" id="floatingInput" placeholder="Utilizador" type="email">
-            <label for="floatingInput">Utilizador</label>
+            <input class="form-control" id="username-input" placeholder="Utilizador" type="email">
+            <label for="username-input">Utilizador</label>
         </div>
         <div class="form-floating">
-            <input class="form-control" id="floatingPassword" placeholder="Palavra-Passe" type="password">
-            <label for="floatingPassword">Palavra-Passe</label>
+            <input class="form-control" id="password-input" placeholder="Palavra-Passe" type="password">
+            <label for="password-input">Palavra-Passe</label>
         </div>
-        <button class="w-100 btn btn-lg btn-dark mt-4" type="submit">Entrar</button>
-        <p class="mt-5 mb-3 text-muted">&copy; Afonso Santos, Iúri Raimundo - 2022</p>
+        <button class="w-100 btn btn-lg btn-dark mt-4" id="submit-input" type="submit">Entrar</button>
+        <p class="mt-5 mb-3 text-muted">&copy; 2022 - Afonso Santos, Iúri Raimundo</p>
     </form>
 </main>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/login.js"></script>
 </body>
 </html>

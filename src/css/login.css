@@ -37,3 +37,11 @@ body {
     border-top-left-radius: 0;
     border-top-right-radius: 0;
 }
+
+.login-logo {
+    width: 100px;
+}
+
+#error-banner {
+    display: none;
+}
