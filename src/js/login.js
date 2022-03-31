@@ -28,6 +28,8 @@ document.getElementById("submit-input").addEventListener("click", (e) => {
         errorBanner.style.display = "block";
         errorBanner.innerHTML = "Login com sucesso!";
 
+        localStorage.setItem("username", username);
+
         setTimeout(() => {
           window.location = "/RTI-Dashboard/src/dashboard.html";
         }, 500);
