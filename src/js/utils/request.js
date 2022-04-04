@@ -1,3 +1,11 @@
+/**
+ * Efetua um pedido HTTP a um recurso.
+ * @param method Método HTTP a utilizar no pedido
+ * @param route Localização do recurso
+ * @param data Dados a enviar no pedido
+ * @param token Token de autenticação a enviar no pedido
+ * @returns {Promise<unknown>}
+ */
 function request(method, route, data, token) {
   return new Promise((resolve, reject) => {
     let url = `https://projeto-rti-api.herokuapp.com/api/${route}`;

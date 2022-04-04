@@ -31,8 +31,6 @@ document.getElementById("submit-input").addEventListener("click", (e) => {
       errorBanner.classList.value = "alert alert-danger";
       errorBanner.style.display = "block";
 
-      res.json().then((r) => {
-        errorBanner.innerText = r.message;
-      });
+      errorBanner.innerText = res.message;
     });
 });
