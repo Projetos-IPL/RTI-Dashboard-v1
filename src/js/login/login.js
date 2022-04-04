@@ -19,8 +19,10 @@ document.getElementById("submit-input").addEventListener("click", (e) => {
       errorBanner.style.display = "block";
       errorBanner.innerText = "Login com sucesso!";
 
+      // save username in localstorage (simulates a session start in PHP)
       localStorage.setItem("username", username);
 
+      // wait before redirecting to dashboard
       setTimeout(() => {
         window.location = "/RTI-Dashboard/src/dashboard.html";
       }, 500);
