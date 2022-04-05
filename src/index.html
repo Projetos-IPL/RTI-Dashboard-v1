@@ -11,9 +11,9 @@
 </head>
 <body class="text-center">
 
-<script type="module">
-    if (localStorage.getItem('username') != null) {
-        window.location = '/RTI-Dashboard/src/dashboard.html'
+<script>
+    if (sessionStorage.getItem("username") != null) {
+        window.location = "/RTI-Dashboard/src/dashboard.html";
     }
 </script>
 

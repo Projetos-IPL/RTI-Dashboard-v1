@@ -1,4 +1,4 @@
-import utils from "../utils/utils.js";
+import { request } from "../utils/utils.js";
 
 document.getElementById("submit-input").addEventListener("click", (e) => {
   e.preventDefault();
@@ -12,15 +12,14 @@ document.getElementById("submit-input").addEventListener("click", (e) => {
     password: password,
   };
 
-  utils
-    .request("POST", "auth.php", userData, null)
+  request("POST", "auth.php", userData, null)
     .then((res) => {
       errorBanner.classList.value = "alert alert-success";
       errorBanner.style.display = "block";
       errorBanner.innerText = "Login com sucesso!";
 
       // save username in localstorage (simulates a session start in PHP)
-      localStorage.setItem("username", username);
+      sessionStorage.setItem("username", username);
 
       // wait before redirecting to dashboard
       setTimeout(() => {
