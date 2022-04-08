@@ -6,9 +6,11 @@
  * @param token Token de autenticação a enviar no pedido
  * @returns {Promise<unknown>}
  */
+import { API_URL } from "../config.js";
+
 function request(method, route, data, token) {
   return new Promise((resolve, reject) => {
-    let url = `https://projeto-rti-api.herokuapp.com/api/${route}`;
+    let url = `${API_URL}${route}`;
 
     const xhr = new XMLHttpRequest();
     xhr.open(method, url);
