@@ -1,3 +1,3 @@
-if (sessionStorage.getItem("username") === null) {
+if (localStorage.getItem("username") === null) {
   window.location = "/RTI-Dashboard/src/index.html";
 }

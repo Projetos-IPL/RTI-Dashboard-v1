@@ -18,7 +18,10 @@
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
-        <a class="navbar-brand" href="dashboard.html">Sistema de Segurança</a>
+        <a class="navbar-brand" href="dashboard.html">
+            <i class="fa-solid fa-building-shield me-1"></i>
+            Sistema de Segurança
+        </a>
         <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"
                 class="navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
@@ -36,6 +39,9 @@
                     <a class="nav-link" href="permissoes.html">Permissões</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="movimentos.html">Movimentos</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="historico.html">Histórico</a>
                 </li>
             </ul>
@@ -50,102 +56,74 @@
 
 <div class="container mt-5">
     <h2>Dashboard</h2>
+    <h5 class="text-muted fw-light fst-italic">Bem-vindo, <span id="username"></span></h5>
 
-    <div class="row mt-5">
-        <div class="col-md-8">
-            <div class="card text-center">
-                <div class="card-header">
-                    Último Movimento
-                </div>
-                <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a class="btn btn-primary" href="#">Go somewhere</a>
-                </div>
-                <div class="card-footer text-muted">
-                    2 days ago
+    <div class="row" style="margin-top: 4rem">
+        <div class="row text-white justify-content-around">
+            <!-- Pessoas -->
+            <div class="col-md-3 me-5 bg-secondary shadow-sm">
+                <div class="row p-4 align-items-center">
+                    <div class="col-md-6 text-center">
+                        <i class="fas fa-person fa-4x"></i>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="mb-0" id="counter-pessoas">--</h2>
+                        <h6 class="mb-0">Pessoas Registadas</h6>
+                    </div>
                 </div>
             </div>
+            <!-- Movimentos Permitidos -->
+            <div class="col-md-3 me-5 bg-dark shadow-sm">
+                <div class="row p-4 align-items-center">
+                    <div class="col-md-6 text-center">
+                        <i class="fas fa-clock-rotate-left fa-4x"></i>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="mb-0" id="counter-movimentosPermitidos">--</h2>
+                        <h6 class="mb-0">Movimentos Permitidos</h6>
+                    </div>
+                </div>
+            </div>
+            <!-- Movimentos Negados -->
+            <div class="col-md-3 bg-danger shadow-sm">
+                <div class="row p-4 align-items-center">
+                    <div class="col-md-6 text-center">
+                        <i class="fas fa-ban fa-4x"></i>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="mb-0" id="counter-movimentosNegados">--</h2>
+                        <h6 class="mb-0">Movimentos Negados</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row align-items-center" style="margin-top: 6rem">
+        <div class="col-md-8">
+            <h4><i class="fa-solid fa-clock-rotate-left me-2"></i> Últimos 5 Movimentos</h4>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Pessoa</th>
+                    <th scope="col">Data/Hora</th>
+                    <th scope="col">Estado</th>
+                </tr>
+                </thead>
+                <tbody id="ultimosMovimentos-table"></tbody>
+            </table>
         </div>
         <div class="col-md-4">
             <div class="card text-center">
                 <div class="card-header">
                     Último Movimento
                 </div>
-                <div class="card-body">
-                    <h4 class="card-title">Afonso Santos</h4>
-                    <div>Sensor da Porta 2 (Entrada)</div>
-                    <h4 class="mt-3">
-                        <span class="badge bg-success">
-                            <i class="fas fa-check me-1"></i>
-                            Permitido
-                        </span>
-                    </h4>
-                </div>
-                <div class="card-footer text-muted">
-                    <small class="text-muted">20/03/2022 - 19:45</small>
-                </div>
+                <div class="py-3 card-body" id="ultimoMovimento-card"></div>
             </div>
         </div>
-    </div>
 
-    <div class="row mt-5">
-        <h4>Últimos 10 Movimentos</h4>
-
-        <div class="col-md-8 mt-3">
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col"># Movimento</th>
-                    <th scope="col">Pessoa</th>
-                    <th scope="col">Data/Hora</th>
-                    <th scope="col">Estado</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th scope="row">5</th>
-                    <td>Afonso Santos</td>
-                    <td>20/03/2022 - 19:45</td>
-                    <td class="text-success">
-                        <i class="fas fa-check me-1"></i> Permitido
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">4</th>
-                    <td>Iúri Raimundo</td>
-                    <td>20/03/2022 - 18:30</td>
-                    <td class="text-danger">
-                        <i class="fas fa-ban me-1"></i> Negado
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Afonso Santos</td>
-                    <td>20/03/2022 - 16:45</td>
-                    <td class="text-success">
-                        <i class="fas fa-check me-1"></i> Permitido
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Afonso Santos</td>
-                    <td>20/03/2022 - 16:45</td>
-                    <td class="text-success">
-                        <i class="fas fa-check me-1"></i> Permitido
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Afonso Santos</td>
-                    <td>20/03/2022 - 16:45</td>
-                    <td class="text-danger">
-                        <i class="fas fa-ban me-1"></i> Negado
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
     </div>
 </div>
 </body>

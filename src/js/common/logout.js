@@ -1,9 +1,9 @@
 function logout(event) {
   event.preventDefault();
 
-  sessionStorage.clear();
+  localStorage.removeItem("username");
 
-  window.location = "/RTI-Dashboard/src/index.html";
+  window.location = "index.html";
 }
 
 export default logout;

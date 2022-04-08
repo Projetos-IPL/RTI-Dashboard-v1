@@ -13,17 +13,17 @@ document.getElementById("submit-input").addEventListener("click", (e) => {
   };
 
   request("POST", "auth.php", userData, null)
-    .then((res) => {
+    .then(() => {
       errorBanner.classList.value = "alert alert-success";
       errorBanner.style.display = "block";
       errorBanner.innerText = "Login com sucesso!";
 
       // save username in localstorage (simulates a session start in PHP)
-      sessionStorage.setItem("username", username);
+      localStorage.setItem("username", username);
 
       // wait before redirecting to dashboard
       setTimeout(() => {
-        window.location = "/RTI-Dashboard/src/dashboard.html";
+        window.location = "dashboard.html";
       }, 500);
     })
     .catch((res) => {

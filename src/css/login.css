@@ -39,7 +39,8 @@ body {
 }
 
 .login-logo {
-    width: 100px;
+    font-size: 6em;
+    margin-bottom: 0.2em;
 }
 
 #error-banner {

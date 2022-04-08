@@ -8,9 +8,9 @@ import deletePersonbtnClickHandler from "../eventHandlers/deletePersonBtnClickHa
 function peopleTableRow(person) {
   // Validar parâmetros
   if (
-    !person.hasOwnProperty("primNome") ||
-    !person.hasOwnProperty("ultNome") ||
-    !person.hasOwnProperty("rfid")
+      !person.hasOwnProperty("primNome") ||
+      !person.hasOwnProperty("ultNome") ||
+      !person.hasOwnProperty("rfid")
   ) {
     console.error("Parâmetro incorreto em " + Function.name);
   }
@@ -22,29 +22,34 @@ function peopleTableRow(person) {
   deleteButton = document.createElement("button");
 
   editButton.classList.add(
-    "alterarPessoa-button",
-    "btn",
-    "btn-sm",
-    "btn-warning",
-    "me-2"
+      "alterarPessoa-button",
+      "btn",
+      "btn-sm",
+      "btn-warning",
+      "me-2"
   );
   editButton.setAttribute("type", "button");
   editButton.innerHTML = '<i class="fas fa-pencil text-white"></i>';
+
+  editButton.removeEventListener("click", (e) =>
+      updatePersonBtnClickHandler(e, person)
+  );
+
   editButton.addEventListener("click", (e) =>
-    updatePersonBtnClickHandler(e, person)
+      updatePersonBtnClickHandler(e, person)
   );
 
   deleteButton.classList.add(
-    "apagarPessoa-button",
-    "btn",
-    "btn-sm",
-    "btn-danger",
-    "me-1"
+      "apagarPessoa-button",
+      "btn",
+      "btn-sm",
+      "btn-danger",
+      "me-1"
   );
   deleteButton.setAttribute("type", "button");
   deleteButton.innerHTML = '<i class="fas fa-trash"></i>';
   deleteButton.addEventListener("click", (e) =>
-    deletePersonbtnClickHandler(person.rfid)
+      deletePersonbtnClickHandler(person.rfid)
   );
 
   let nameTD, rfidTD, actionTD;
@@ -64,4 +69,4 @@ function peopleTableRow(person) {
   return tr;
 }
 
-export { peopleTableRow };
+export {peopleTableRow};
