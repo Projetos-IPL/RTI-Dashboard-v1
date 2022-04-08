@@ -3,7 +3,7 @@ import { request } from "../utils/utils.js";
 import noHistoricosAvailableRow from "./elements/noHistoricosAvailableRow.js";
 import { populateTable } from "./utils/utils.js";
 
-let HISTORICO;
+let HistoricoSensores;
 
 request("GET", "registosDeSensor.php", null, null).then((data) => {
   if (data.length === 0) {
@@ -11,7 +11,7 @@ request("GET", "registosDeSensor.php", null, null).then((data) => {
       .getElementById("table-historico")
       .appendChild(noHistoricosAvailableRow());
   } else {
-    HISTORICO = data;
+    HistoricoSensores = data;
     populateTable(data);
   }
 });
@@ -19,11 +19,11 @@ request("GET", "registosDeSensor.php", null, null).then((data) => {
 document.getElementById("dropdown-sensor").addEventListener("change", (e) => {
   const option = parseInt(e.target.value);
 
-  var historico_novo = HISTORICO.filter((e) => {
+  let historico_novo = HistoricoSensores.filter((e) => {
     return e.sensorType === option;
   });
 
-  var element = document.getElementById("table-historico");
+  let element = document.getElementById("table-historico");
   while (element.hasChildNodes()) {
     element.removeChild(element.firstChild);
   }

@@ -1,12 +1,14 @@
 import { request } from "../utils/utils.js";
-import loadingSpinner from "../common/loadingSpinner.js";
+import {
+  triggerLoadingSpinner,
+  disableLoadingSpinner,
+} from "../common/loadingSpinner/loadingSpinner.js";
 
 document.getElementById("submit-input").addEventListener("click", (e) => {
   e.preventDefault();
 
   let isLoading = true;
   let originalValue = e.target.value;
-  loadingSpinner(e.target, isLoading, null);
 
   const username = document.getElementById("username-input").value;
   const password = document.getElementById("password-input").value;
@@ -16,6 +18,10 @@ document.getElementById("submit-input").addEventListener("click", (e) => {
     username: username,
     password: password,
   };
+
+  // Ativar spinner antes de efetuar o pedido
+
+  triggerLoadingSpinner();
 
   request("POST", "auth.php", userData, null)
     .then(() => {
@@ -38,5 +44,8 @@ document.getElementById("submit-input").addEventListener("click", (e) => {
       errorBanner.style.display = "block";
 
       errorBanner.innerText = res.message;
+    })
+    .finally(() => {
+      disableLoadingSpinner();
     });
 });
