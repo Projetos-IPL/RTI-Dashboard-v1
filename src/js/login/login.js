@@ -32,6 +32,8 @@ document.getElementById("submit-input").addEventListener("click", (e) => {
       }, 500);
     })
     .catch((res) => {
+      e.target.value = "Entrar";
+
       errorBanner.classList.value = "alert alert-danger";
       errorBanner.style.display = "block";
 
