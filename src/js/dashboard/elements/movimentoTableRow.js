@@ -31,6 +31,7 @@ function movimentoTableRow(movimento) {
 
   resultTD.innerHTML = `<span class="text-${color}"><i class="fas fa-${icon} me-1"></i> ${text}</span>`;
 
+  console.log(movimento.rfid);
   request(
     "POST",
     "functions/getPersonName.php",

@@ -17,7 +17,15 @@ function historicoTableRow(historico) {
   valueTD = document.createElement("td");
   timeTD = document.createElement("td");
 
-  sensorTD.innerText = historico.sensorType;
+  request(
+    "POST",
+    "functions/getSensorName.php",
+    { sensorType: historico.sensorType },
+    null
+  ).then((data) => {
+    sensorTD.innerText = data.name;
+  });
+
   valueTD.innerText = historico["value"];
 
   // converter timestamp de segundos para milisegundos

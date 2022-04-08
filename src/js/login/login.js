@@ -1,7 +1,12 @@
 import { request } from "../utils/utils.js";
+import loadingSpinner from "../common/loadingSpinner.js";
 
 document.getElementById("submit-input").addEventListener("click", (e) => {
   e.preventDefault();
+
+  let isLoading = true;
+  let originalValue = e.target.value;
+  loadingSpinner(e.target, isLoading, null);
 
   const username = document.getElementById("username-input").value;
   const password = document.getElementById("password-input").value;

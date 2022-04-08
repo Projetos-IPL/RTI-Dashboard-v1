@@ -4,7 +4,7 @@ import { noMovimentosAvailableRow, populateTable } from "./utils/utils.js";
 import ultimoMovimentoCard from "./elements/ultimoMovimentoCard.js";
 
 // obter lista de movimentos
-request("GET", "registos.php", null, null)
+request("GET", "movimentos.php", null, null)
   .then((data) => {
     if (data.length === 0) {
       document
@@ -22,6 +22,8 @@ request("GET", "registos.php", null, null)
       const pessoas = request("GET", "pessoas.php", null, null).then((data) => {
         document.getElementById("counter-pessoas").innerText = data.length;
       });
+
+      console.log(data);
 
       populateTable([...data]);
 

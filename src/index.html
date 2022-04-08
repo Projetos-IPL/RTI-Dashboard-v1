@@ -14,7 +14,7 @@
 
 <script>
     if (localStorage.getItem("username") != null) {
-        window.location = "/RTI-Dashboard/src/dashboard.html";
+        window.location = "dashboard.html";
     }
 </script>
 
@@ -34,7 +34,10 @@
             <input class="form-control" id="password-input" placeholder="Palavra-Passe" type="password">
             <label for="password-input">Palavra-Passe</label>
         </div>
-        <button class="w-100 btn btn-lg btn-dark mt-4" id="submit-input" type="submit">Entrar</button>
+        <button class="w-100 btn btn-lg btn-dark mt-4" id="submit-input" type="submit">
+
+            Entrar
+        </button>
         <p class="mt-5 mb-3 text-muted">&copy; 2022 - Afonso Santos, Iúri Raimundo</p>
     </form>
 </main>

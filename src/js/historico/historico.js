@@ -5,7 +5,7 @@ import { populateTable } from "./utils/utils.js";
 
 let HISTORICO;
 
-request("GET", "historico.php", null, null).then((data) => {
+request("GET", "registosDeSensor.php", null, null).then((data) => {
   if (data.length === 0) {
     document
       .getElementById("table-historico")
